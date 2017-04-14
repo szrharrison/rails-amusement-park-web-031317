@@ -6,16 +6,16 @@
   </div>
 
   <div class="info">
-    <p><strong>Name:</strong> <%= @attraction.name%></p>
+    <p><strong>Name:</strong> <%= @attraction.name %></p>
     <p><strong>Total Number of Users:</strong> <%= @attraction.users.count %></p>
     <p><strong>Ticket Requirement:</strong> <%= @attraction.tickets %></p>
-    <p><strong>Height Requirement:</strong> <%= @attraction.min_height%> inches</p>
-    <p><strong>Nausea Rating:</strong> <%= @attraction.nausea_rating%></p>
-    <p><strong>Happiness Rating:</strong> <%= @attraction.happiness_rating%></p>
-    <% if session[:admin]%>
+    <p><strong>Height Requirement:</strong> <%= @attraction.min_height %> inches</p>
+    <p><strong>Nausea Rating:</strong> <%= @attraction.nausea_rating %></p>
+    <p><strong>Happiness Rating:</strong> <%= @attraction.happiness_rating %></p>
+    <% if session[:admin] %>
      <%= link_to "Edit attraction", edit_attraction_path(@attraction) %>
-     <%else %>
-     <%= form_tag "/rides/new" do%>
+     <% else %>
+     <%= form_tag "/rides/new" do %>
       <%= hidden_field_tag :user_id, value = session[:user_id] %>
       <%= hidden_field_tag :attraction_id , value = @attraction_id %>
       <%= submit_tag "Go on this ride" %>

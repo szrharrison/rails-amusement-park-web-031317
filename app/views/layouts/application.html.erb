@@ -28,7 +28,7 @@
              <%= link_to "Sign In", login_path %>
              <%= link_to "Sign Up", new_user_path %>
            <% else %>
-             <%= link_to "Hello, #{@user.name}!", @user %>
+             <%= link_to "Hello, #{session[:user_name]}!", @user %>
              <%= link_to "Attractions", attractions_path %>
              <%= link_to "Log Out", destroy_session_path %>
            <% end %>

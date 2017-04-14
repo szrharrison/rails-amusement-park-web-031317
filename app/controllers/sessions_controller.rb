@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
     if @user.authenticate( params[:user][:password] )
       session[:user_id] = @user.id
       session[:admin] = @user.admin
+      session[:user_name] = @user.name
       redirect_to user_path(@user)
     else
       render :login

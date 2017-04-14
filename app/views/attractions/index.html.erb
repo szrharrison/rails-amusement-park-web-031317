@@ -1,8 +1,8 @@
 <% if session[:admin] %>
   <% @link = "Show" %>
-<%else %>
+<% else %>
   <% @link = "Go on" %>
-<% end%>
+<% end %>
 
 <h1>Listing attractions</h1>
 <table>
@@ -18,7 +18,7 @@
       <td><img src="http://www.allthingsclipart.com/05/amusement.park.05.jpg" alt="pic"></td>
       <td><%= attraction.name %></td>
       <td><%= attraction.tickets %></td>
-      <td><%= link_to "#{@link} #{attraction.name}" , attraction_path(attraction)%></td>
+      <td><%= link_to "#{@link} #{attraction.name}" , attraction_path(attraction) %></td>
     </tr>
     <% end %>
   </tbody>

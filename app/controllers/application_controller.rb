@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def set_user
     if !!params[:id]
-      @user = User.find(params[:id])
+      @user = User.find( params[:id] )
     end
   end
 
