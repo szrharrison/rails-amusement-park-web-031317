@@ -13,11 +13,11 @@
     <p><strong>Nausea Rating:</strong> <%= @attraction.nausea_rating %></p>
     <p><strong>Happiness Rating:</strong> <%= @attraction.happiness_rating %></p>
     <% if session[:admin] %>
-     <%= link_to "Edit attraction", edit_attraction_path(@attraction) %>
+     <%= link_to "Edit Attraction", edit_attraction_path(@attraction) %>
      <% else %>
-     <%= form_tag "/rides/new" do %>
+     <%= form_tag "/rides" do %>
       <%= hidden_field_tag :user_id, value = session[:user_id] %>
-      <%= hidden_field_tag :attraction_id , value = @attraction_id %>
+      <%= hidden_field_tag :attraction_id , value = @attraction.id %>
       <%= submit_tag "Go on this ride" %>
      <% end %>
     <% end %>

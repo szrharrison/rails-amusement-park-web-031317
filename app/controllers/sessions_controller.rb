@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       session[:admin] = @user.admin
       session[:user_name] = @user.name
+      session[:justforfun] = "this doesn't do anything"
       redirect_to user_path(@user)
     else
       render :login
