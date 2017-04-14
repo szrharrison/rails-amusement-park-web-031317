@@ -1,0 +1,29 @@
+<% if session[:admin] %>
+  <% @link = "Show" %>
+<%else %>
+  <% @link = "Go on" %>
+<% end%>
+
+<h1>Listing attractions</h1>
+<table>
+  <thead>
+    <th>Picture</th>
+    <th>Name</th>
+    <th>Tickets</th>
+    <th>Details</th>
+  </thead>
+  <tbody>
+    <% @attractions.each do |attraction| %>
+    <tr>
+      <td><img src="http://www.allthingsclipart.com/05/amusement.park.05.jpg" alt="pic"></td>
+      <td><%= attraction.name %></td>
+      <td><%= attraction.tickets %></td>
+      <td><%= link_to "#{@link} #{attraction.name}" , attraction_path(attraction)%></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if session[:admin] %>
+<%= link_to "New Attraction", new_attraction_path %>
+<% end %>
