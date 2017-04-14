@@ -1,0 +1,31 @@
+<h1>Editing user</h1>
+
+<% if @user.errors.present? %>
+  <% @user.errors.full_messages.each do |error| %>
+      <%= error %>
+  <% end %>
+<% end %>
+
+<%= form_for @user do|f|%>
+  <%=f.label  :name%>
+  <%=f.text_field :name%>
+
+  <%=f.label  :height, "Height(in inches)"%>
+  <%=f.number_field :height%>
+
+  <%=f.label  :happiness, "How happy are you?(1-5 scale)"%>
+  <%=f.number_field :happiness%>
+
+  <%=f.label  :nausea, "How nauseous are you?(1-5 scale)"%>
+  <%=f.number_field :nausea%>
+
+  <%=f.label  :tickets, "How many dollars are in your pocket?"%>
+  <%=f.number_field :tickets%>
+
+  <%=f.label  :admin, "Check box if you are a theme park owner"%>
+  <%=f.checkbox :admin%>
+
+  <%=f.submit%>
+<% end %>
+
+<%= link_to "Show", user_path(@user) %> | <%= link_to "Back", user_path(@user) %>
